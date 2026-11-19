@@ -1,0 +1,93 @@
+
+<nav
+  class="navbar"
+  [class.menu-open]="isOpen"
+  [class.scrolled]="isScrolled">
+
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <a href="#home" (click)="closeMenu()">
+        Alex<span>.</span>
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <div class="desktop-menu">
+
+      @for (link of navLinks; track link) {
+        <a
+          [href]="'#' + link.toLowerCase()"
+          [class.active]="activeSection === link.toLowerCase()">
+
+          {{ link }}
+
+          <span class="nav-line"></span>
+        </a>
+      }
+
+    </div>
+
+    <!-- Hire Button -->
+    <div class="desktop-btn">
+      <a href="#contact" class="hire-btn  data-magnetic">
+        <span>Hire Me</span>
+        <svg viewBox="0 0 24 24" fill="none">
+          <path
+            d="M5 12h14M13 6l6 6-6 6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="menu-btn"
+      [class.active]="isOpen"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isOpen"
+      aria-label="Toggle navigation menu">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-menu" [class.show]="isOpen">
+
+    <div class="mobile-menu-inner">
+
+      @for (link of navLinks; track link) {
+        <a
+          [href]="'#' + link.toLowerCase()"
+          (click)="closeMenu()">
+
+          <span>{{ link }}</span>
+          <span class="mobile-arrow">↗</span>
+
+        </a>
+      }
+
+      <a
+        href="#contact"
+        class="mobile-hire"
+        (click)="closeMenu()">
+
+        Let's Work Together
+        <span>↗</span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>

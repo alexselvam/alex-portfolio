@@ -1,0 +1,166 @@
+
+<section id="projects" class="projects">
+
+  <!-- Background -->
+  <div class="projects-background">
+    <div class="project-grid-bg"></div>
+    <div class="project-orb orb-one"></div>
+    <div class="project-orb orb-two"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- Heading -->
+    <div class="heading">
+
+      <span class="section-label">
+        <span class="label-dot"></span>
+        SELECTED WORK
+      </span>
+
+      <h2>
+        Featured <span>Projects</span>
+      </h2>
+
+      <p>
+        Real-world applications and digital experiences
+        I've contributed to as a MEAN Stack Developer.
+      </p>
+
+    </div>
+
+    <!-- Project Grid -->
+    <div class="project-grid">
+
+      @for (project of projects; track project.name; let i = $index) {
+
+        <article
+          class="project-card data-cursor-spotlight"
+          [style.--project-color]="project.color"
+          [style.--project-glow]="project.glow"
+          [style.--card-delay]="(i * 100) + 'ms'"
+          (mousemove)="onCardMove($event)"
+          (mouseleave)="onCardLeave($event)">
+
+          <div class="card-light"></div>
+
+          <div class="card-content">
+
+            <!-- Top -->
+            <div class="project-top">
+
+              <span class="project-number">
+                PROJECT / 0{{ i + 1 }}
+              </span>
+
+              <span class="project-status">
+                <span class="status-dot"></span>
+                FEATURED
+              </span>
+
+            </div>
+
+            <!-- 3D Visual -->
+            <div class="project-visual">
+
+              <div class="visual-ring ring-one"></div>
+              <div class="visual-ring ring-two"></div>
+              <div class="visual-ring ring-three"></div>
+
+              <div class="visual-core">
+                <i [class]="project.icon"></i>
+              </div>
+
+              <div class="visual-orbit orbit-one"></div>
+              <div class="visual-orbit orbit-two"></div>
+
+              <span class="visual-particle particle-one"></span>
+              <span class="visual-particle particle-two"></span>
+              <span class="visual-particle particle-three"></span>
+
+            </div>
+
+            <!-- Project Details -->
+            <div class="project-details">
+
+              <div class="project-category">
+                {{ project.category }}
+              </div>
+
+              <h3>{{ project.name }}</h3>
+
+              <p class="project-description">
+                {{ project.description }}
+              </p>
+
+              <!-- Features -->
+              <div class="feature-list">
+
+                @for (feature of project.features; track feature) {
+
+                  <span class="feature-item">
+                    <span class="feature-check">✦</span>
+                    {{ feature }}
+                  </span>
+
+                }
+
+              </div>
+
+            </div>
+
+            <!-- Bottom -->
+            <div class="project-bottom">
+
+              @if (project.link) {
+
+                <a
+                  class="project-link"
+                  [href]="project.link"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  <span>Explore Project</span>
+
+                  <span class="link-arrow">↗</span>
+
+                </a>
+
+              } @else {
+
+                <span class="project-unavailable">
+                  Details available on request
+                </span>
+
+              }
+
+              <span class="bottom-index">
+                0{{ i + 1 }} / 0{{ projects.length }}
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+    <!-- Footer -->
+    <div class="projects-footer">
+
+      <span class="footer-line"></span>
+
+      <p>
+        TURNING IDEAS INTO DIGITAL EXPERIENCES
+      </p>
+
+      <span class="footer-line"></span>
+
+    </div>
+
+  </div>
+
+</section>

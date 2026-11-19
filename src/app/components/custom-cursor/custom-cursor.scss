@@ -1,0 +1,185 @@
+
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+}
+
+.cursor-system {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Large soft neon glow */
+
+.cursor-aura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 174, 255, .17) 0%,
+    rgba(0, 100, 255, .09) 35%,
+    transparent 72%
+  );
+
+  filter: blur(8px);
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+/* Main glass ring */
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(0, 225, 255, .9);
+
+  background: radial-gradient(
+    circle at 30% 25%,
+    rgba(0, 217, 255, .18),
+    rgba(0, 90, 255, .04) 65%
+  );
+
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, .6),
+    0 0 22px rgba(0, 140, 255, .3),
+    inset 0 0 12px rgba(0, 217, 255, .2);
+
+  transform: translate3d(-50%, -50%, 0);
+  transition:
+    width .3s cubic-bezier(.2, .8, .2, 1),
+    height .3s cubic-bezier(.2, .8, .2, 1),
+    border-color .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+
+  will-change: transform;
+}
+
+/* Rotating orbit */
+
+.cursor-orbit {
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 217, 255, .6);
+  animation: cursorOrbit 5s linear infinite;
+}
+
+.cursor-orbit::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: 4px;
+  left: 50%;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px #00d9ff;
+}
+
+/* Inner core */
+
+.cursor-core {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: rgba(0, 217, 255, .12);
+  box-shadow: 0 0 15px rgba(0, 217, 255, .45);
+}
+
+.cursor-center {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 8px #00d9ff,
+    0 0 18px #008cff;
+}
+
+/* Hover state */
+
+:host-context(body.cursor-hover) .cursor-ring {
+  width: 65px;
+  height: 65px;
+  border-color: #fff;
+  background: rgba(0, 217, 255, .13);
+
+  box-shadow:
+    0 0 15px #00d9ff,
+    0 0 35px rgba(0, 140, 255, .6),
+    inset 0 0 20px rgba(0, 217, 255, .25);
+}
+
+:host-context(body.cursor-hover) .cursor-orbit {
+  border-style: solid;
+  animation-duration: 2s;
+}
+
+/* Click pulse */
+
+.cursor-pulse {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #00d9ff;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(.3);
+  pointer-events: none;
+}
+
+:host-context(body.cursor-click) .cursor-pulse {
+  animation: cursorPulse .5s ease-out;
+}
+
+:host-context(body.cursor-click) .cursor-ring {
+  width: 32px;
+  height: 32px;
+}
+
+/* Animations */
+
+@keyframes cursorOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cursorPulse {
+  0% {
+    opacity: .9;
+    transform: translate3d(-50%, -50%, 0) scale(.3);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(3.5);
+  }
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  :host {
+    display: none;
+  }
+}

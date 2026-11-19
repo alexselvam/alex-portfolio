@@ -1,0 +1,238 @@
+
+<section
+  class="hero"
+  id="hero"
+  #heroSection
+  (pointermove)="onHeroPointerMove($event)"
+  (pointerleave)="onHeroPointerLeave()"
+>
+
+  <!-- Background Video -->
+
+  <video
+    #videoPlayer
+    class="background-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="metadata"
+    [muted]="isMuted"
+  >
+    <source
+      src="../../../assets/about/Video Project 1.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <!-- Dark Overlay -->
+
+  <div class="hero-overlay"></div>
+
+  <!-- Three.js Canvas -->
+
+  <canvas
+    #sceneCanvas
+    class="hero-three-canvas"
+  ></canvas>
+
+  <!-- Ambient Lights -->
+
+  <div class="hero-glow hero-glow-one"></div>
+  <div class="hero-glow hero-glow-two"></div>
+
+  <!-- Top Navigation Label -->
+
+  <div class="hero-top-label">
+    <span class="online-dot"></span>
+    AVAILABLE FOR OPPORTUNITIES
+  </div>
+
+  <!-- Main Content -->
+
+  <div class="content-container">
+
+    <!-- LEFT CONTENT -->
+
+    <div class="left-content">
+
+      <div class="hero-intro">
+        <span class="intro-line"></span>
+        <span>WELCOME TO MY DIGITAL SPACE</span>
+      </div>
+
+      <h1 class="hero-title">
+
+        Hi, I'm
+
+        <span class="name-text">
+          Alex<span class="name-dot">.</span>
+        </span>
+
+        <span class="title-break"></span>
+
+        <span class="outline-text">
+          Full Stack
+        </span>
+
+        <span class="gradient-text">
+          Developer
+        </span>
+
+      </h1>
+
+      <p class="hero-description">
+
+        I build fast, scalable, and modern web applications
+        using MongoDB, Express.js, Angular, and Node.js.
+        Turning creative ideas into powerful digital experiences.
+
+      </p>
+
+      <!-- Tech Stack -->
+
+      <div class="hero-tech-stack">
+
+        <span>ANGULAR</span>
+        <span class="tech-separator">/</span>
+        <span>NODE.JS</span>
+        <span class="tech-separator">/</span>
+        <span>MONGODB</span>
+
+      </div>
+
+      <!-- BUTTONS -->
+
+      <div class="button-group">
+
+        <a href="#projects" class="primary-btn">
+
+          <span>EXPLORE MY WORK</span>
+          <span class="btn-arrow">↗</span>
+
+        </a>
+
+        <a href="#contact" class="secondary-btn">
+
+          <span>LET'S TALK</span>
+          <span class="btn-arrow">↗</span>
+
+        </a>
+
+      </div>
+
+      <!-- Social Proof -->
+
+      <div class="hero-bottom-info">
+
+        <div class="hero-scroll-icon">
+          <span></span>
+        </div>
+
+        <span>SCROLL TO EXPLORE</span>
+
+        <div class="bottom-line"></div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT CONTENT -->
+
+    <div class="right-content">
+
+      <!-- 3D Orbital Decoration -->
+
+      <div class="orbital-scene">
+
+        <div class="orbital-ring ring-one"></div>
+        <div class="orbital-ring ring-two"></div>
+        <div class="orbital-ring ring-three"></div>
+
+        <!-- Main Core -->
+
+        <div class="orbital-core">
+
+          <div class="core-inner">
+            <span>AX</span>
+          </div>
+
+          <div class="core-glow"></div>
+
+        </div>
+
+        <!-- Floating Tech Labels -->
+
+        <div class="orbit-label orbit-angular">
+          <span class="orbit-icon">A</span>
+          <span>ANGULAR</span>
+        </div>
+
+        <div class="orbit-label orbit-node">
+          <span class="orbit-icon">N</span>
+          <span>NODE.JS</span>
+        </div>
+
+        <div class="orbit-label orbit-database">
+          <span class="orbit-icon">M</span>
+          <span>MONGODB</span>
+        </div>
+
+        <div class="orbit-label orbit-code">
+          <span class="orbit-icon">&lt;/&gt;</span>
+          <span>CODE</span>
+        </div>
+
+      </div>
+
+      <!-- Video Play Button -->
+
+      <button
+        type="button"
+        class="video-button"
+        (click)="toggleVideo()"
+        [attr.aria-label]="isPlaying ? 'Pause showreel' : 'Play showreel'"
+      >
+
+        <span class="play-btn">
+
+          <svg
+            *ngIf="!isPlaying"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+
+          <svg
+            *ngIf="isPlaying"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
+          </svg>
+
+        </span>
+
+        <span class="video-text">
+          {{ isPlaying ? 'PAUSE REEL' : 'PLAY SHOWREEL' }}
+        </span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom Right Coordinates -->
+
+  <div class="hero-coordinate">
+    <span>PORTFOLIO</span>
+    <span>2026 — PRESENT</span>
+  </div>
+
+  <!-- Bottom Decoration -->
+
+  <div class="hero-bottom-line"></div>
+
+</section>

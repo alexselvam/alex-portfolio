@@ -1,0 +1,108 @@
+
+<section id="services" class="services-section" #container>
+  <div class="services-noise"></div>
+  <div class="services-glow glow-one"></div>
+  <div class="services-glow glow-two"></div>
+
+  <div class="services-wrapper">
+
+    <!-- Header -->
+    <header class="services-header">
+      <div class="section-eyebrow">
+        <span class="eyebrow-dot"></span>
+        HOW WE WORK
+      </div>
+
+      <h2>
+        From bold ideas to
+        <span class="gradient-text">digital reality.</span>
+        <svg class="header-arrow" viewBox="0 0 50 50" fill="none">
+          <path d="M8 8C18 18 27 27 39 39M39 39L25 37M39 39L37 25"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </h2>
+
+      <p class="header-description">
+        A thoughtful process, creative thinking and powerful technology
+        come together to turn your vision into something meaningful.
+      </p>
+    </header>
+
+    <!-- Desktop animated timeline -->
+    <svg class="desktop-path" viewBox="0 0 1000 1350"
+      preserveAspectRatio="none" aria-hidden="true">
+      <path class="path-bg"
+        d="M650 200 C400 300 200 400 300 600
+           C400 800 750 750 700 950
+           C650 1150 400 1150 300 1200"/>
+      <path class="path-progress"
+        d="M650 200 C400 300 200 400 300 600
+           C400 800 750 750 700 950
+           C650 1150 400 1150 300 1200"
+        pathLength="1"
+        [style.stroke-dashoffset]="1 - pathPercent"/>
+    </svg>
+
+    <!-- Cards -->
+    <div class="cards-container">
+
+      <!-- Mobile timeline -->
+      <div class="mobile-line" aria-hidden="true">
+        <div class="mobile-progress" [style.height.%]="pathPercent * 100"></div>
+        <span class="timeline-glow"></span>
+      </div>
+
+      <article
+        #card
+        *ngFor="let card of cards; let i = index"
+        class="service-card"
+        [ngClass]="[card.className, card.active ? 'active' : '']"
+        (mousemove)="onCardMove($event)"
+        (mouseleave)="onCardLeave($event)">
+
+        <div class="card-light"></div>
+        <div class="card-top-line"></div>
+
+        <!-- 3D decorative visual -->
+        <div class="card-visual">
+          <div class="visual-ring ring-outer"></div>
+          <div class="visual-ring ring-middle"></div>
+          <div class="visual-ring ring-inner"></div>
+
+          <div class="visual-core">
+            <span>{{ card.number }}</span>
+          </div>
+
+          <span class="visual-orbit orbit-one"></span>
+          <span class="visual-orbit orbit-two"></span>
+        </div>
+
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="step-label">STEP {{ card.number }}</span>
+            <span class="step-status">
+              <span></span>
+              {{ card.active ? 'IN PROGRESS' : 'OUR PROCESS' }}
+            </span>
+          </div>
+
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.text }}</p>
+
+          <div class="card-footer">
+            <span class="footer-line"></span>
+            <span class="footer-text">BUILDING WHAT'S NEXT</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Ending -->
+    <div class="end-text">
+      <span class="end-icon">✦</span>
+      <span>Ready to bring your idea to life?</span>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,201 @@
+
+<section class="about-section" id="about">
+
+  <!-- Three.js Background -->
+  <canvas #sceneCanvas class="three-canvas"></canvas>
+
+  <div class="ambient-glow glow-one"></div>
+  <div class="ambient-glow glow-two"></div>
+
+  <div class="about-container">
+
+    <!-- LEFT: PROFILE -->
+    <div class="about-left">
+
+      <div class="profile-scene">
+
+        <div class="profile-orbit orbit-one"></div>
+        <div class="profile-orbit orbit-two"></div>
+
+        <div class="lanyard-3d"></div>
+
+        <div
+          class="profile-card"
+          (pointermove)="onCardMove($event)"
+          (pointerleave)="onCardLeave($event)">
+
+          <div class="card-glare"></div>
+          <div class="card-border"></div>
+
+          <div class="card-top">
+            <span class="card-brand">
+              <span class="brand-symbol">✦</span>
+              ALEX.DEV
+            </span>
+
+            <span class="card-status">
+              <span class="status-dot"></span>
+              AVAILABLE
+            </span>
+          </div>
+
+          <!-- Profile Image -->
+          <div class="profile-image">
+            <div class="image-frame">
+              <img
+                src="assets/about/image.png"
+                alt="Alex - Full Stack Developer"
+                loading="lazy">
+            </div>
+
+            <div class="image-corner corner-tl"></div>
+            <div class="image-corner corner-tr"></div>
+            <div class="image-corner corner-bl"></div>
+            <div class="image-corner corner-br"></div>
+          </div>
+
+          <div class="profile-info">
+            <span class="profile-label">
+              FULL STACK DEVELOPER
+            </span>
+
+            <h3>Alex<span>.</span></h3>
+
+            <p>Building Digital Experiences</p>
+          </div>
+
+          <div class="card-divider"></div>
+
+          <div class="card-bottom">
+            <span>ANGULAR · NODE · MONGODB</span>
+            <span class="card-chip">✦</span>
+          </div>
+
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-element element-one">
+          <span>01</span>
+          <small>DEVELOP</small>
+        </div>
+
+        <div class="floating-element element-two">
+          <span>✦</span>
+        </div>
+
+        <div class="floating-element element-three">
+          <span>03</span>
+          <small>CREATE</small>
+        </div>
+
+        <div class="floating-tech tech-angular">
+          <span>A</span>
+          ANGULAR
+        </div>
+
+        <div class="floating-tech tech-node">
+          <span>N</span>
+          NODE.JS
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT: CONTENT -->
+    <div class="about-right">
+
+      <div class="section-label">
+        <span class="label-line"></span>
+        GET TO KNOW ME
+      </div>
+
+      <h2>
+        Hello<span class="accent">!</span>
+        <br>
+        I'm <span class="gradient-text">Alex.</span>
+      </h2>
+
+      <h3 class="about-subtitle">
+        Full Stack Developer
+        <span class="subtitle-dot"></span>
+        Creative Thinker
+      </h3>
+
+      <p class="about-description">
+        I'm a passionate Full Stack Developer dedicated to
+        building fast, scalable, and user-focused web applications.
+        I specialize in creating modern web solutions using
+        Angular, Node.js, Express.js, and MongoDB, with a strong
+        focus on clean code, performance, and exceptional
+        user experiences.
+      </p>
+
+      <!-- STATS -->
+      <div class="about-stats">
+
+        <div class="stat-item">
+          <h3>01<span>+</span></h3>
+          <p>Years Learning</p>
+        </div>
+
+        <div class="stat-item">
+          <h3>10<span>+</span></h3>
+          <p>Projects Built</p>
+        </div>
+
+        <div class="stat-item">
+          <h3>05<span>+</span></h3>
+          <p>Technologies</p>
+        </div>
+
+      </div>
+
+      <!-- TECHNOLOGIES -->
+      <div class="skills-section">
+
+        <span class="skills-heading">
+          TECHNOLOGIES I WORK WITH
+        </span>
+
+        <div class="skills">
+
+          <div class="skill-card">
+            <img src="assets/about/logo.png" alt="Angular">
+            <span>Angular</span>
+          </div>
+
+          <div class="skill-card">
+            <img src="assets/about/node.png" alt="Node.js">
+            <span>Node.js</span>
+          </div>
+
+          <div class="skill-card">
+            <img src="assets/about/mongodb.png" alt="MongoDB">
+            <span>MongoDB</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <a href="#contact" class="about-cta">
+        LET'S WORK TOGETHER
+        <span>↗</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="bottom-decoration">
+    <span>DESIGN</span>
+    <span class="decoration-star">✦</span>
+    <span>DEVELOP</span>
+    <span class="decoration-star">✦</span>
+    <span>INNOVATE</span>
+  </div>
+
+</section>

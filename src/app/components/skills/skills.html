@@ -1,0 +1,120 @@
+
+<section #skillsSection id="skills" class="skills">
+
+  <!-- 3D Background -->
+  <div class="skills-background">
+    <div class="background-grid"></div>
+    <div class="light-orb orb-one"></div>
+    <div class="light-orb orb-two"></div>
+    <div class="light-orb orb-three"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="section-heading">
+
+      <div class="section-label">
+        <span class="live-dot"></span>
+        WHAT I WORK WITH
+      </div>
+
+      <h2>
+        My Tech <span>Universe</span>
+      </h2>
+
+      <p>
+        A collection of technologies and tools I use
+        to transform ideas into powerful digital experiences.
+      </p>
+
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-grid">
+
+      @for (skill of skills_name; track skill.name; let i = $index) {
+
+        <div
+          class="skill-card"
+          [style.--skill-color]="skill.color"
+          [style.--skill-glow]="skill.glow"
+          [style.--card-delay]="(i * 80) + 'ms'"
+          (mousemove)="onCardMove($event)"
+          (mouseleave)="onCardLeave($event)">
+
+          <div class="card-glow"></div>
+
+          <div class="card-content">
+
+            <!-- Top -->
+            <div class="card-top">
+              <span class="card-index">
+                0{{ i + 1 }}
+              </span>
+
+              <span class="card-status">
+                <span></span>
+                ACTIVE
+              </span>
+            </div>
+
+            <!-- 3D Icon -->
+            <div class="icon-stage">
+
+              <div class="icon-platform"></div>
+
+              <div class="icon-reflection"></div>
+
+              <div class="icon-holder">
+                <i [class]="skill.icon"></i>
+              </div>
+
+              <div class="icon-shadow"></div>
+
+            </div>
+
+            <!-- Name -->
+            <div class="skill-info">
+
+              <h3>{{ skill.name }}</h3>
+
+              <span>TECHNOLOGY</span>
+
+            </div>
+
+            <!-- Bottom -->
+            <div class="card-bottom">
+
+              <span class="bottom-line"></span>
+
+              <span class="arrow-icon">↗</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="skills-bottom">
+
+      <div class="bottom-decoration"></div>
+
+      <div class="bottom-text">
+        <span class="bottom-star">✦</span>
+        BUILDING WITH PASSION. CREATING WITH PURPOSE.
+        <span class="bottom-star">✦</span>
+      </div>
+
+      <div class="bottom-decoration"></div>
+
+    </div>
+
+  </div>
+
+</section>
