@@ -1,5 +1,5 @@
 export const environment = {
 	production: true,
-	backendUrl: 'https://alex-portfolio-pied.vercel.app/S',
+	backendUrl: 'https://alex-portfolio-pied.vercel.app/',
 
 };
